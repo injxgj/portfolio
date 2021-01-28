@@ -232,6 +232,9 @@ p {
   color: var(--color-light-white);
 }
 .skillset__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--color-dark-grey);
   flex-basis: 60%;
   padding: 20px 40px;
