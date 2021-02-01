@@ -113,6 +113,7 @@ p {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  z-index: 1;
   transition: all var(--animateion-duration) ease-in-out;
 }
 #navbar.navbar__scroll {

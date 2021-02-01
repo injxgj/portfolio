@@ -12,3 +12,10 @@ document.addEventListener('scroll', () => {
     navBar.classList.remove('navbar__scroll');
   }
 });
+
+// 메뉴 선택시 해당 페이지로 스크롤
+
+const menu = document.querySelector('.navbar__menu');
+menu.addEventListener('click', (e) => {
+  document.querySelector(e.target.dataset.link).scrollIntoView({ behavior: 'smooth' });
+});
