@@ -168,6 +168,11 @@ p {
   background: url(./imgs/bg.png) center/cover no-repeat;
   padding: 40px;
   padding-top: 100px;
+  opacity: 1;
+  transition: all var(--animateion-duration) ease-in-out;
+}
+#home.scroll {
+  opacity: 0;
 }
 .home__avatar {
   widows: 250px;

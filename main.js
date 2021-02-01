@@ -16,11 +16,6 @@ document.addEventListener('scroll', () => {
 // 메뉴 선택시 해당 페이지로 스크롤
 const menu = document.querySelector('.navbar__menu');
 
-function scrollIntoView(selector) {
-  const scrollTo = document.querySelector(selector);
-  scrollTo.scrollIntoView({ behavior: 'smooth' });
-}
-
 menu.addEventListener('click', (e) => {
   scrollIntoView(e.target.dataset.link);
 });
@@ -29,4 +24,17 @@ menu.addEventListener('click', (e) => {
 const contactMeBtn = document.querySelector('.home__contact');
 contactMeBtn.addEventListener('click', (e) => {
   scrollIntoView(e.target.dataset.link);
+});
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Home 화면 점점 투명해지도록
+const home = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', (e) => {
+  home.style.opacity = 1 - window.scrollY / homeHeight;
+  console.log(1 - window.scrollY / homeHeight);
 });
