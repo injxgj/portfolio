@@ -14,8 +14,19 @@ document.addEventListener('scroll', () => {
 });
 
 // 메뉴 선택시 해당 페이지로 스크롤
-
 const menu = document.querySelector('.navbar__menu');
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: 'smooth' });
+}
+
 menu.addEventListener('click', (e) => {
-  document.querySelector(e.target.dataset.link).scrollIntoView({ behavior: 'smooth' });
+  scrollIntoView(e.target.dataset.link);
+});
+
+// `Contact me` 버튼 클릭 시 이동
+const contactMeBtn = document.querySelector('.home__contact');
+contactMeBtn.addEventListener('click', (e) => {
+  scrollIntoView(e.target.dataset.link);
 });

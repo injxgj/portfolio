@@ -189,6 +189,15 @@ p {
   border-radius: var(--size-border-radius);
 }
 
+.home__contact:hover {
+  cursor: pointer;
+  background-color: var(--color-blue);
+}
+.home__contact.active {
+  border: 1px solid var(--color-white);
+  cursor: pointer;
+}
+
 /* About */
 .about__majors {
   display: flex;
