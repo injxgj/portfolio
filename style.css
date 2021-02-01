@@ -106,16 +106,30 @@ p {
 
 /* Navbar */
 #navbar {
-  background-color: #1c3f6d;
+  position: fixed;
+  /* background-color: #1c3f6d; */
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  width: 100%;
+  transition: all var(--animateion-duration) ease-in-out;
+}
+#navbar.navbar__scroll {
+  background-color: #1c3f6d;
 }
 
 .navbar__logo {
+  display: flex;
+  align-items: center;
   font-size: var(--font-medium);
   font-weight: var(--weight-bold);
+}
+
+.navabar__logo--img {
+  width: 70px;
+  height: 70px;
+  transform: translate('', 50%);
 }
 
 .navbar__menu {
@@ -151,6 +165,8 @@ p {
 /* Home */
 #home {
   background: url(./imgs/bg.png) center/cover no-repeat;
+  padding: 40px;
+  padding-top: 100px;
 }
 .home__avatar {
   widows: 250px;
@@ -413,7 +429,7 @@ p {
 
 /* Contact */
 #contact {
-  background-color: var(--color-pink);
+  background-color: #1c3f6d;
 }
 
 .contact__title,
