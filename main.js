@@ -38,3 +38,17 @@ document.addEventListener('scroll', (e) => {
   home.style.opacity = 1 - window.scrollY / homeHeight;
   console.log(1 - window.scrollY / homeHeight);
 });
+
+// Top button
+const topBtn = document.querySelector('.top__btn');
+document.addEventListener('scroll', () => {
+  if (window.scrollY > homeHeight / 2) {
+    topBtn.classList.add('visible');
+  } else {
+    topBtn.classList.remove('visible');
+  }
+});
+
+topBtn.addEventListener('click', (e) => {
+  scrollIntoView('#home');
+});
