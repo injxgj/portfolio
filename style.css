@@ -142,10 +142,13 @@ p {
   padding: 8px 12px;
   margin: 0 4px;
   color: var(--color-white);
+  border: 1px solid transparent;
   border-radius: var(--size-border-radius);
 }
 
 .navbar__menu--item:hover {
+  border: 1px solid white;
+  border-radius: var(--size-border-radius);
   cursor: pointer;
   background-color: var(--color-blue);
 }
