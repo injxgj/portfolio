@@ -52,3 +52,50 @@ document.addEventListener('scroll', () => {
 topBtn.addEventListener('click', (e) => {
   scrollIntoView('#home');
 });
+
+// My work 페이지 탭 클릭시에 관련 이미지만 보이도록
+const workCategoryList = ['all', 'frontend', 'backend', 'mobile'];
+const workList = document.querySelectorAll('.category__btn');
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+
+let activeWork = 'all';
+setActiveWorkTab(activeWork);
+
+workBtnContainer.addEventListener('click', (e) => {
+  let targetWork = e.target.dataset.work || e.target.parentNode.dataset.work; // Btn안에 있는 span을 클릭했을 경우 방어로직
+  // removeActiveTab();
+  // addActiveTab(targetWork);
+
+  projectContainer.classList.add('anim-out');
+
+  setTimeout(() => {
+    projects.forEach((cur) => {
+      if (targetWork === 'all' || targetWork === cur.dataset.type) {
+        cur.classList.remove('invisible');
+      } else {
+        cur.classList.add('invisible');
+      }
+    });
+    projectContainer.classList.remove('anim-out');
+  }, 300);
+});
+
+// function removeActiveTab() {
+//   let workIdx = workCategoryList.indexOf(getAcitiveWorkTab());
+//   workList[workIdx].classList.remove('active');
+// }
+// function addActiveTab(next) {
+//   setActiveWorkTab(next);
+//   let workIdx = workCategoryList.indexOf(next);
+//   workList[workIdx].classList.add('active');
+// }
+
+function getAcitiveWorkTab() {
+  return sessionStorage.getItem('active-work');
+}
+
+async function setActiveWorkTab(selected) {
+  await sessionStorage.setItem('active-work', selected);
+}
