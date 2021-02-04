@@ -17,8 +17,34 @@ document.addEventListener('scroll', () => {
 const navbarMenu = document.querySelector('.navbar__menu');
 
 navbarMenu.addEventListener('click', (e) => {
-  navbarMenu.classList.remove('open');
-  scrollIntoView(e.target.dataset.link);
+  navbarMenu.classList.remove('open'); // small device일 때 메뉴 접히도록
+  scrollIntoView(e.target.dataset.link); // 해당 페이지로 scroll 되도록
+});
+
+// 스크롤된 페이지에 맞게 메뉴 선택되도록
+let observer = new IntersectionObserver(
+  (entries, observer) => {
+    const target = entries[0].target;
+    const isIntersecting = entries[0].isIntersecting;
+    const activeMenu = document.querySelector(`[data-link='#${target.id}']`);
+    if (isIntersecting === true) {
+      let activeNavBtn = document.querySelector('.navbar__menu--item.active');
+      activeNavBtn && activeNavBtn.classList.remove('active');
+      activeMenu.classList.add('active');
+    }
+  },
+  { threshold: 0.5 }
+);
+
+const homeSection = document.querySelector('#home');
+const aboutSection = document.querySelector('#about');
+const skillsSection = document.querySelector('#skills');
+const workSection = document.querySelector('#work');
+const testimonialsSection = document.querySelector('#testimonials');
+const contactSection = document.querySelector('#contact');
+
+[homeSection, aboutSection, skillsSection, workSection, testimonialsSection, contactSection].forEach((cur) => {
+  observer.observe(cur);
 });
 
 // navbar toggle button for small screen
@@ -43,7 +69,6 @@ const home = document.querySelector('.home__container');
 const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener('scroll', (e) => {
   home.style.opacity = 1 - window.scrollY / homeHeight;
-  console.log(1 - window.scrollY / homeHeight);
 });
 
 // Top button
