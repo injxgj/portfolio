@@ -17,14 +17,14 @@ document.addEventListener('scroll', () => {
 const navbarMenu = document.querySelector('.navbar__menu');
 
 navbarMenu.addEventListener('click', (e) => {
-  navbarMenu.classList.add('close');
+  navbarMenu.classList.remove('open');
   scrollIntoView(e.target.dataset.link);
 });
 
 // navbar toggle button for small screen
 const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
 navbarToggleBtn.addEventListener('click', () => {
-  navbarMenu.classList.toggle('close');
+  navbarMenu.classList.toggle('open');
 });
 
 // `Contact me` 버튼 클릭 시 이동

@@ -20,16 +20,14 @@
         <img class="navabar__logo--img" src="./imgs/favicon.png" alt="logo">
         <a class="navabar__logo--title" href="#">Gyoungjun</a>
       </div>
-      <div class="navbar__menu">
-        <ul class="navbar__menu">
-          <li class="navbar__menu--item " data-link="#home">Home</li>
-          <li class="navbar__menu--item" data-link="#about">About</li>
-          <li class="navbar__menu--item" data-link="#skills">Skills</li>
-          <li class="navbar__menu--item" data-link="#work">Work</li>
-          <li class="navbar__menu--item" data-link="#testimonials">Testimonials</li>
-          <li class="navbar__menu--item" data-link="#contact">Contact</li>
-        </ul>
-      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__menu--item " data-link="#home">Home</li>
+        <li class="navbar__menu--item" data-link="#about">About</li>
+        <li class="navbar__menu--item" data-link="#skills">Skills</li>
+        <li class="navbar__menu--item" data-link="#work">Work</li>
+        <li class="navbar__menu--item" data-link="#testimonials">Testimonials</li>
+        <li class="navbar__menu--item" data-link="#contact">Contact</li>
+      </ul>
       <!-- Toggle button -->
       <button class="navbar__toggle-btn">
         <i class="fas fa-bars"></i>
@@ -167,10 +165,10 @@
       <div class="section__container"><h1>My work</h1>
         <h3>Projects</h3>
         <div class="work__categories">
-          <button class="category__btn active" data-work='all'>All<span class="category__count">8</span></span></button>
-          <button class="category__btn" data-work='frontend'>Front-end<span class="category__count">3</span></button>
-          <button class="category__btn" data-work='backend'>Back-end<span class="category__count">3</span></button>
-          <button class="category__btn" data-work='mobile'>Mobile<span class="category__count">2</span></button>
+          <button class="category__btn active" data-work='all' data-tooltip-text='8'>All<span class="category__count">8</span></span></button>
+          <button class="category__btn" data-work='frontend' data-tooltip-text='3'>Front-end<span class="category__count">3</span></button>
+          <button class="category__btn" data-work='backend' data-tooltip-text='3'>Back-end<span class="category__count">3</span></button>
+          <button class="category__btn" data-work='mobile' data-tooltip-text='2'>Mobile<span class="category__count">2</span></button>
         </div>
         <div class="work__projects">
           <a href="" class="project " data-type="frontend" target="blank">
