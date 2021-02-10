@@ -19,22 +19,12 @@ const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (e) => {
   navbarMenu.classList.remove('open'); // small device일 때 메뉴 접히도록
   scrollIntoView(e.target.dataset.link); // 해당 페이지로 scroll 되도록
+  setActiveNavBtn(e.target.dataset.link.substring(1));
 });
 
 // 스크롤된 페이지에 맞게 메뉴 선택되도록
-let observer = new IntersectionObserver(
-  (entries, observer) => {
-    const target = entries[0].target;
-    const isIntersecting = entries[0].isIntersecting;
-    const activeMenu = document.querySelector(`[data-link='#${target.id}']`);
-    if (isIntersecting === true) {
-      let activeNavBtn = document.querySelector('.navbar__menu--item.active');
-      activeNavBtn && activeNavBtn.classList.remove('active');
-      activeMenu.classList.add('active');
-    }
-  },
-  { threshold: 0.5 }
-);
+const Top = document.querySelector('#top-bar');
+const Bottom = document.querySelector('#bottom-bar');
 
 const homeSection = document.querySelector('#home');
 const aboutSection = document.querySelector('#about');
@@ -42,10 +32,52 @@ const skillsSection = document.querySelector('#skills');
 const workSection = document.querySelector('#work');
 const testimonialsSection = document.querySelector('#testimonials');
 const contactSection = document.querySelector('#contact');
+let sectionList = [homeSection, aboutSection, skillsSection, workSection, testimonialsSection, contactSection];
 
-[homeSection, aboutSection, skillsSection, workSection, testimonialsSection, contactSection].forEach((cur) => {
+let observer = new IntersectionObserver(
+  (entries, observer) => {
+    const target = entries[0].target;
+    const isIntersecting = entries[0].isIntersecting;
+    console.log(entries[0]);
+
+    let preActiveNavBtn = document.querySelector('.navbar__menu--item.active');
+    let activeNavBtn;
+
+    // 맨 위랑 맨 밑일 경우
+    if (window.scrollY === 0) {
+      setActiveNavBtn('home');
+    } else if (window.scrollY + window.innerHeight === document.body.clientHeight) {
+      setActiveNavBtn('contact');
+    }
+    if (isIntersecting === false && target !== Top && target !== Bottom) {
+      // console.log(entries[0]);
+      let curIdx = sectionList.indexOf(target);
+      // setActiveNavBtn(sectionList[curIdx].id);
+      if (entries[0].boundingClientRect.y < 0) {
+        // 스크롤 위에서 아래로
+        setActiveNavBtn(sectionList[curIdx + 1].id);
+      } else {
+        // 스크롤 아래서 위로
+        setActiveNavBtn(sectionList[curIdx - 1].id);
+      }
+    }
+  },
+  { threshold: 0.8 }
+);
+
+sectionList.forEach((cur) => {
   observer.observe(cur);
 });
+
+observer.observe(Top);
+observer.observe(Bottom);
+
+function setActiveNavBtn(targetId) {
+  let activeNavBtn = document.querySelector(`[data-link='#${targetId}']`);
+  let preActiveNavBtn = document.querySelector('.navbar__menu--item.active');
+  preActiveNavBtn && preActiveNavBtn.classList.remove('active');
+  activeNavBtn.classList.add('active');
+}
 
 // navbar toggle button for small screen
 const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
