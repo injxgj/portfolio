@@ -118,8 +118,6 @@ topBtn.addEventListener('click', (e) => {
 });
 
 // My work 페이지 탭 클릭시에 관련 이미지만 보이도록
-// const workCategoryList = ['all', 'frontend', 'backend', 'mobile'];
-// const workList = document.querySelectorAll('.category__btn');
 const workBtnContainer = document.querySelector('.work__categories');
 const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
@@ -128,25 +126,27 @@ let activeWork = 'all';
 setActiveWorkTab(activeWork);
 
 workBtnContainer.addEventListener('click', (e) => {
-  const active = document.querySelector('.category__btn.active');
-  active.classList.remove('active');
-  const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode; // Btn안에 있는 span을 클릭햇을 경우 방어로직
+  if (e.target.className === 'category__btn' || e.target.className === 'category__count') {
+    const active = document.querySelector('.category__btn.active');
+    active.classList.remove('active');
+    const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode; // Btn안에 있는 span을 클릭햇을 경우 방어로직
 
-  target.classList.add('active');
+    target.classList.add('active');
 
-  projectContainer.classList.add('anim-out');
+    projectContainer.classList.add('anim-out');
 
-  setTimeout(() => {
-    let targetWork = e.target.dataset.work || e.target.parentNode.dataset.work; // Btn안에 있는 span을 클릭했을 경우 방어로직
-    projects.forEach((cur) => {
-      if (targetWork === 'all' || targetWork === cur.dataset.type) {
-        cur.classList.remove('invisible');
-      } else {
-        cur.classList.add('invisible');
-      }
-    });
-    projectContainer.classList.remove('anim-out');
-  }, 300);
+    setTimeout(() => {
+      let targetWork = e.target.dataset.work || e.target.parentNode.dataset.work; // Btn안에 있는 span을 클릭했을 경우 방어로직
+      projects.forEach((cur) => {
+        if (targetWork === 'all' || targetWork === cur.dataset.type) {
+          cur.classList.remove('invisible');
+        } else {
+          cur.classList.add('invisible');
+        }
+      });
+      projectContainer.classList.remove('anim-out');
+    }, 300);
+  }
 });
 
 function getAcitiveWorkTab() {
