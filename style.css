@@ -211,7 +211,9 @@ p {
 .about__majors {
   display: flex;
   justify-content: space-between;
-  margin: 80px 0;
+  /* 2개라서 일단 모아둠. */
+  width: 800px;
+  margin: 80px auto;
 }
 .major__icon {
   width: 170px;
@@ -272,6 +274,16 @@ p {
   background-color: var(--color-light-grey);
   color: var(--color-light-white);
   margin: 20px 0;
+}
+.skill__list {
+  text-align: left;
+}
+.skill__description {
+  margin-bottom: 10px;
+  font-size: 16pt;
+}
+.skill__icon {
+  margin-right: 5px;
 }
 .skillset__title {
   color: var(--color-light-white);
