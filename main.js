@@ -156,3 +156,40 @@ function getAcitiveWorkTab() {
 function setActiveWorkTab(selected) {
   sessionStorage.setItem('active-work', selected);
 }
+
+// Modal
+const projectsMap = document.querySelector('.work__projects');
+projectsMap.addEventListener('click', (e) => {
+  const target = projectDivRecursive(e.target);
+  const cover = document.querySelector('#cover');
+  cover.classList.toggle('hidden');
+
+  const image = document.querySelector('.modal_img');
+  image.src = target.dataset.image;
+
+  const title = document.querySelector('.modal_title');
+  const name = document.querySelector('.modal_name');
+  const path = document.querySelector('.modal_path');
+  const description = document.querySelector('.modal_description');
+
+  title.innerText = target.dataset.name + '-' + target.dataset.subname;
+  name.innerText = target.dataset.name;
+  path.href = target.dataset.path;
+  path.innerText = target.dataset.path;
+  description.innerText = target.dataset.description;
+
+  console.log(target);
+});
+
+const projectDivRecursive = (target) => {
+  if (target.className !== 'project') {
+    target = projectDivRecursive(target.parentNode);
+  }
+  return target;
+};
+
+const overlay = document.querySelector('.modal_wrapper');
+overlay.addEventListener('click', () => {
+  const cover = document.querySelector('#cover');
+  cover.classList.toggle('hidden');
+});

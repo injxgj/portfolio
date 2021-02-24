@@ -171,27 +171,27 @@
       <div class="section__container"><h1>My work</h1>
         <h3>Projects</h3>
         <div class="work__categories">
-          <button class="category__btn active" data-work='all' data-tooltip-text='8'>All<span class="category__count">8</span></span></button>
-          <button class="category__btn" data-work='frontend' data-tooltip-text='3'>Front-end<span class="category__count">3</span></button>
-          <button class="category__btn" data-work='backend' data-tooltip-text='3'>Back-end<span class="category__count">3</span></button>
-          <button class="category__btn" data-work='mobile' data-tooltip-text='2'>Mobile<span class="category__count">2</span></button>
+          <button class="category__btn active" data-work='all' data-tooltip-text='2'>All<span class="category__count">2</span></span></button>
+          <button class="category__btn" data-work='vanilaJavascript' data-tooltip-text='1'>Vanila JavaScript<span class="category__count">1</span></button>
+          <button class="category__btn" data-work='react' data-tooltip-text='1'>React.js<span class="category__count">1</span></button>
+          <!-- <button class="category__btn" data-work='mobile' data-tooltip-text='2'>Mobile<span class="category__count">2</span></button> -->
         </div>
         <div class="work__projects">
-          <a href="" class="project " data-type="frontend" target="blank">
-            <img src="./imgs/project1.png" alt="Youtube" class="project__img">
+          <div class="project" data-type="vanilaJavascript" data-image="./imgs/i_love_cat.PNG" data-name="I Love Cat" data-subName="Programmers Devmatching" data-path="https://github.com/injxgj/cat_project" data-description="Programmers Devmatching">
+            <img src="./imgs/i_love_cat.PNG" alt="Youtube" class="project__img">
             <div class="project__description">
-              <h3>Youtube Site</h3>
-              <span>Clone coding</span>
+              <h3>I Love Cat</h3>
+              <span>Programmers Devmatching</span>
             </div>
-          </a>
-          <a href="" class="project " data-type="mobile" target="blank">
-            <img src="./imgs/project2.png" alt="Youtube" class="project__img">
+          </div>
+          <div class="project" data-type="react" data-image="./imgs/hypercloud.PNG" data-name="Hypercloud" data-subName="Cloud WEB Platform" data-path="https://github.com/tmax-cloud/hypercloud-console5.0"data-description="Cloud WEB Platform">
+            <img src="./imgs/hypercloud.PNG" alt="Youtube" class="project__img">
             <div class="project__description">
-              <h3>Youtube Site</h3>
-              <span>Clone coding</span>
+              <h3>Hypercloud</h3>
+              <span>Cloud WEB Platform</span>
             </div>
-          </a>
-          <a href="" class="project " data-type="frontend" target="blank">
+          </div>
+          <!-- <a href="" class="project " data-type="frontend" target="blank">
             <img src="./imgs/project3.png" alt="Youtube" class="project__img">
             <div class="project__description">
               <h3>Youtube Site</h3>
@@ -232,7 +232,7 @@
               <h3>Youtube Site</h3>
               <span>Clone coding</span>
             </div>
-          </a>
+          </a> -->
         </div>
     </section>
     <!-- Testimonials -->
@@ -244,7 +244,7 @@
             <img src="./imgs/people1.jpg" alt="people1" class="testimonial__avatar">
             <div class="testimonial__speech-bubble">
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio distinctio laboriosam molestiae rem mollitia ad explicabo et exercitationem ducimus! Provident obcaecati voluptates doloribus sequi! Id officia perspiciatis ut suscipit facere?</p>
-              <p class="name"><a href="">Gyoungjun</a></p>
+              <p class="name"><a href="">someone</a></p>
             </div>
           </div>
           <div class="testimonial">
@@ -262,7 +262,7 @@
       <h1 class="contact__title">Let's talk</h1>
       <h2 class="contact__email">injxgj@gmail.com</h2>
       <div class="contact__links">
-        <a href="" target="_blank">
+        <a href="https://github.com/injxgj" target="_blank">
           <i class="fab fa-github"></i>
         </a>
         <a href="" target="_blank">
@@ -272,6 +272,31 @@
       <p class="contact__rights">
         2021 Gyoungjun's Portfolio
       </p>
+    </section>
+    <!-- Modal -->
+    <section id="cover" class="hidden" >
+      <div class="modal_wrapper"></div>
+      <div class="modal">
+        <header class="modal_header">
+          <p class="modal_title"></p>
+          <span class="modal_exit">X</span>
+        </header>
+        <img src="" alt="Youtube" class="modal_img">
+        <article class="modal_article">
+          <div class="modal_paragraph">
+            <p>Name: </p>
+            <p class="modal_name"></p>
+          </div>
+          <div class="modal_paragraph">
+            <p>Github Link: </p>
+            <a class="modal_path" href="" target="_blank"></a>
+          </div>
+          <div class="modal_paragraph">
+            <p>Description: </p>
+          <p class="modal_description"></p>
+          </div>
+        </article>
+      </div>
     </section>
     <!-- Arrow up -->
     <button class="top__btn"><i class="fas fa-arrow-circle-up"></i></button>

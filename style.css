@@ -49,6 +49,10 @@ a {
   color: var(--color-white);
 }
 
+span {
+  color: var(--color-white);
+}
+
 ul {
   padding-left: 0;
 }
@@ -379,6 +383,8 @@ p {
   width: 280px;
   height: 250px;
   margin: 2px;
+  padding: 3px;
+  margin: 3px;
   position: relative;
   display: flex;
   align-items: center;
@@ -492,6 +498,70 @@ p {
 .contact_links i:hover {
   transform: scale(1.1);
   color: var(--color-yello);
+}
+/* Modal */
+#cover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal_wrapper {
+  position: absolute;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+
+  background-color: #fff;
+  width: 1000px;
+  height: 720px;
+}
+.modal_header {
+  height: 40px;
+  margin: 10px 0;
+}
+.modal_title {
+  font-size: 20pt;
+}
+.modal_exit {
+  position: absolute;
+  font-size: 20pt;
+  margin-right: 5px;
+  right: 0;
+}
+.modal_article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.modal_paragraph {
+  display: inherit;
+}
+.modal_path {
+  color: black;
+  line-height: 32px;
+}
+.modal_path:link {
+  color: #4b70fd;
+}
+.modal_path:visited {
+  color: #8c59b9;
+}
+.hidden {
+  visibility: hidden;
 }
 
 /* Top Button */
