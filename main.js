@@ -178,6 +178,8 @@ projectsMap.addEventListener('click', (e) => {
   path.innerText = target.dataset.path;
   description.innerText = target.dataset.description;
 
+  document.body.style.overflow = 'hidden';
+
   console.log(target);
 });
 
@@ -192,4 +194,5 @@ const overlay = document.querySelector('.modal_wrapper');
 overlay.addEventListener('click', () => {
   const cover = document.querySelector('#cover');
   cover.classList.toggle('hidden');
+  document.body.style.overflow = 'visible';
 });
