@@ -1,5 +1,7 @@
 # Portfolio
 
+(https://injxgj.github.io/portfolio/)
+
 ## 목적
 
 - publishing, Web API, JavaScript등의 Frontend career를 정리하려는 용도
