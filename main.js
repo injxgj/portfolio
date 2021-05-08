@@ -30,9 +30,10 @@ const homeSection = document.querySelector('#home');
 const aboutSection = document.querySelector('#about');
 const skillsSection = document.querySelector('#skills');
 const workSection = document.querySelector('#work');
-const testimonialsSection = document.querySelector('#testimonials');
+// const testimonialsSection = document.querySelector('#testimonials');
 const contactSection = document.querySelector('#contact');
-let sectionList = [homeSection, aboutSection, skillsSection, workSection, testimonialsSection, contactSection];
+// let sectionList = [homeSection, aboutSection, skillsSection, workSection, testimonialsSection, contactSection];
+let sectionList = [homeSection, aboutSection, skillsSection, workSection,  contactSection];
 
 let observer = new IntersectionObserver(
   (entries, observer) => {
