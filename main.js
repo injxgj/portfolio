@@ -150,6 +150,47 @@ workBtnContainer.addEventListener('click', (e) => {
   }
 });
 
+const studyBtnContainer = document.querySelector('.study__categories');
+function getUrl (target) {
+  let url;
+  if(target.dataset.study === 'javascript') {
+    url = 'https://www.notion.so/d86a1d45469d4ad4a6ab4140cab70a07?v=06948217f6494002bb170eb6fb38140c';
+  }else if(target.dataset.study === 'react') {
+    url = 'https://www.notion.so/72c61f8bdaca445ebd28ca1cbcd88a16?v=fcb4fe816c05449298e4a0e0a52abfb0';
+  } else if (target.dataset.study === 'brower') {
+    url = 'https://www.notion.so/c13879ea865c4b2d8f679cf252d9b472?v=e9c995751f9242e2b915ec2c60070b43';
+  } else if (target.dataset.study === 'etc') {
+    url = 'https://www.notion.so/c5327ce3a32f4e57a5ea886a717c9aaf?v=925b776f02bc49b3b87d6a2a4c8c2b27'
+  }
+  return url;
+}
+studyBtnContainer.addEventListener('click', (e) => {
+  if (e.target.className === 'category__btn' || e.target.className === 'category__count') {
+    const active = document.querySelector('.category__btn.active');
+    active.classList.remove('active');
+    const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode; // Btn안에 있는 span을 클릭햇을 경우 방어로직
+
+    target.classList.add('active');
+
+    projectContainer.classList.add('anim-out');
+
+    let url = getUrl(target);
+    window.open(url);
+
+    setTimeout(() => {
+      let targetWork = e.target.dataset.work || e.target.parentNode.dataset.work; // Btn안에 있는 span을 클릭했을 경우 방어로직
+      projects.forEach((cur) => {
+        if (targetWork === 'all' || targetWork === cur.dataset.type) {
+          cur.classList.remove('invisible');
+        } else {
+          cur.classList.add('invisible');
+        }
+      });
+      projectContainer.classList.remove('anim-out');
+    }, 300);
+  }
+});
+
 function getAcitiveWorkTab() {
   return sessionStorage.getItem('active-work');
 }
