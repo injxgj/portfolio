@@ -231,11 +231,21 @@ p {
   color: var(--color-blue);
 }
 
-.major__icon i {
+.major__icon i  {
+  transition: all var(--animateion-duration) ease;
+}
+.major__icon svg  {
+  margin-top: 36px;
+  margin-left: 6px;
   transition: all var(--animateion-duration) ease;
 }
 
 .major__icon:hover i {
+  color: var(--color-pink);
+  transform: rotate(-30deg) scale(1.1);
+}
+
+.major__icon:hover svg {
   color: var(--color-pink);
   transform: rotate(-30deg) scale(1.1);
 }
