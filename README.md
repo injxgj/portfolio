@@ -4,7 +4,7 @@
 
 ## 목적
 
-- publishing, Web API, JavaScript등의 Frontend career를 정리하려는 용도
+- Frontend 프로젝트 정리 용도
 
 ## 배포
 
