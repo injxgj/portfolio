@@ -107,6 +107,7 @@ p {
 .section__container {
   max-width: 1200px;
   margin: auto;
+  margin-top: 40px;
 }
 
 /* Navbar */
@@ -574,6 +575,15 @@ p {
   visibility: hidden;
 }
 
+/* Common */
+.horizontal__line {
+  padding: 0 80px;
+    width: 800px;
+    margin: 40px auto;
+    border: 1px dotted black;
+}
+
+
 /* Top Button */
 .top__btn {
   position: fixed;
@@ -682,3 +692,4 @@ p {
     z-index: 1;
   } */
 }
+
